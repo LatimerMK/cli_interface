@@ -1,18 +1,20 @@
 #!/bin/bash
 
+# bash <(curl -s https://raw.githubusercontent.com/LatimerMK/cli_interface/refs/heads/main/install.sh)
+
+curl -s https://raw.githubusercontent.com/LatimerMK/bash-install/refs/heads/main/tools/logo.sh | bash
+
 # Визначаємо директорію для проекту
 PROJECT_DIR="cli_monitor"
 VENV_DIR="$PROJECT_DIR/.venv"
 
 # Перевіряємо, чи існує папка проекту, і створюємо її
 mkdir $PROJECT_DIR
-
 cd $PROJECT_DIR
 
 # Створюємо віртуальне середовище, якщо воно не існує
 mkdir .venv
 python3 -m venv .venv
-
 
 # Активуємо віртуальне середовище
 source .venv/bin/activate
@@ -75,6 +77,7 @@ if __name__ == '__main__':
     monitor.run()
 EOL
 
+echo "Створюємо start.sh..."
 cat <<EOL> start.sh
 source .venv/bin/activate
 python main.py
